@@ -5,7 +5,7 @@ function addPixelArt(data) {
 };
 
 function addVote(data) {
-  
+  return pg('vote').insert(data);
 };
 
 module.exports = {
