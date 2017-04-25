@@ -102,6 +102,10 @@
   padding-top: 7%;
 }
 
+.signUp:hover {
+  background: #FCFF81;
+}
+
 .tagline {
   font-family: 'Sigmar One', cursive;
   font-size: 3vw;
