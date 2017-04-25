@@ -1,3 +1,5 @@
+//API get request - "https://api.flickr.com/services/rest/?&method=flickr.people.getPublicPhotos&api_key=" + process.env.API_KEY + "&user_id=149907004@N05&format=json&nojsoncallback=1"
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
