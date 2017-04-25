@@ -50,9 +50,9 @@ function createGrid (x, y) {
   	grid.removeChild(grid.firstChild);
   }
 	// set grid width so that divs will properly wrap
-  grid.style.width = (y + 2) * x + 'px'
+  grid.style.width = (6) * x + 'px'
   // get total number of new individual cells needed
-  var cellCount = x * x;
+  var cellCount = x * y
   // iterate through and create each new cell
   for (var i = 1; i <= cellCount; i++) {
     var newCell = document.createElement('div')
@@ -62,8 +62,16 @@ function createGrid (x, y) {
     // newCell.textContent = i
     grid.appendChild(newCell)
     // set cell size to requested px size
-    newCell.style.width = y + 'px'
-    newCell.style.height = y + 'px'
+    newCell.style.width = '4px'
+    newCell.style.height = '4px'
+  }
+}
+
+function checkOrientation (orientation) {
+  if (orientation === 'landscape') {
+    createGrid(200, 150)
+  } else {
+    createGrid(150, 200)
   }
 }
 
