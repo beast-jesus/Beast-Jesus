@@ -2,7 +2,6 @@
 
 //HTML Injection - <div class=‘cell’ id=‘n (1-30k)’ style=‘width: 28px; height: 28px;’></div>
 
-
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
