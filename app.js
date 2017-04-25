@@ -1,5 +1,7 @@
 //API get request - "https://api.flickr.com/services/rest/?&method=flickr.people.getPublicPhotos&api_key=" + process.env.API_KEY + "&user_id=149907004@N05&format=json&nojsoncallback=1"
 
+//HTML Injection - <div class=‘cell’ id=‘n (1-30k)’ style=‘width: 28px; height: 28px;’></div>
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -45,6 +47,21 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+app.post('/addPixelArt', (req, res) => {
+  var data = {};
+  $('.cell').each(function(){
+    var pixClass = this.class;
+    if(pixClass.length > 4) {
+      data[this.id] = pixClass.slice(5);
+    }
+  });
+  req.body.div_data = data;
+  addPixelArt(req.body)
+  .then(data => {
+    res.render('/', {data});
+  });
+});
+
 function createGrid (x, y) {
 	while (grid.firstChild) {
   	grid.removeChild(grid.firstChild);
@@ -74,7 +91,5 @@ function checkOrientation (orientation) {
     createGrid(150, 200)
   }
 }
-
-
 
 module.exports = app;
