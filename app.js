@@ -1,3 +1,10 @@
+
+
+//API get request - "https://api.flickr.com/services/rest/?&method=flickr.people.getPublicPhotos&api_key=" + process.env.API_KEY + "&user_id=149907004@N05&format=json&nojsoncallback=1"
+
+//HTML Injection - <div class=‘cell’ id=‘n (1-30k)’ style=‘width: 28px; height: 28px;’></div>
+
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -46,6 +53,53 @@ app.use(function(err, req, res, next) {
 
 
 
+
+
+
+app.post('/addPixelArt', (req, res) => {
+  var data = {};
+  $('.cell').each(function(){
+    var pixClass = this.class;
+    if(pixClass.length > 4) {
+      data[this.id] = pixClass.slice(5);
+    }
+  });
+  req.body.div_data = data;
+  addPixelArt(req.body)
+  .then(data => {
+    res.render('/', {data});
+  });
+});
+
+function createGrid (x, y) {
+	while (grid.firstChild) {
+  	grid.removeChild(grid.firstChild);
+  }
+	// set grid width so that divs will properly wrap
+  grid.style.width = (6) * x + 'px'
+  // get total number of new individual cells needed
+  var cellCount = x * y
+  // iterate through and create each new cell
+  for (var i = 1; i <= cellCount; i++) {
+    var newCell = document.createElement('div')
+    // set <div class='cell'>
+    newCell.classList.add('cell')
+    newCell.setAttribute('id', i)
+    // newCell.textContent = i
+    grid.appendChild(newCell)
+    // set cell size to requested px size
+    newCell.style.width = '4px'
+    newCell.style.height = '4px'
+  }
+}
+
+function checkOrientation (orientation) {
+  if (orientation === 'landscape') {
+    createGrid(200, 150)
+  } else {
+    createGrid(150, 200)
+  }
+}
 
 
 module.exports = app;
