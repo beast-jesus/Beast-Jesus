@@ -57,7 +57,7 @@ app.post('/addPixelArt', (req, res) => {
   });
   req.body.div_data = data;
   addPixelArt(req.body)
-  .then(function(data) => {
+  .then(data => {
     res.render('/', {data});
   });
 });
