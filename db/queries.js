@@ -1,5 +1,13 @@
 const pg = require('./knex');
 
+function getPixelArtByUser(data) {
+
+};
+
+function getPixelArtByArtwork(data) {
+
+};
+
 function addPixelArt(data) {
   return pg('pixel_art').insert(data);
 };
@@ -17,6 +25,8 @@ function changePassword(data) {
 };
 
 module.exports = {
+  getPixelArtByUser,
+  getPixelArtByArtwork,
   addPixelArt,
   addVote,
   deletePixelArt,
