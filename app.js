@@ -45,4 +45,36 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+function createGrid (x, y) {
+	while (grid.firstChild) {
+  	grid.removeChild(grid.firstChild);
+  }
+	// set grid width so that divs will properly wrap
+  grid.style.width = (6) * x + 'px'
+  // get total number of new individual cells needed
+  var cellCount = x * y
+  // iterate through and create each new cell
+  for (var i = 1; i <= cellCount; i++) {
+    var newCell = document.createElement('div')
+    // set <div class='cell'>
+    newCell.classList.add('cell')
+    newCell.setAttribute('id', i)
+    // newCell.textContent = i
+    grid.appendChild(newCell)
+    // set cell size to requested px size
+    newCell.style.width = '4px'
+    newCell.style.height = '4px'
+  }
+}
+
+function checkOrientation (orientation) {
+  if (orientation === 'landscape') {
+    createGrid(200, 150)
+  } else {
+    createGrid(150, 200)
+  }
+}
+
+
+
 module.exports = app;
