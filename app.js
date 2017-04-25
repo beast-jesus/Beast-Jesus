@@ -1,5 +1,3 @@
-
-
 //API get request - "https://api.flickr.com/services/rest/?&method=flickr.people.getPublicPhotos&api_key=" + process.env.API_KEY + "&user_id=149907004@N05&format=json&nojsoncallback=1"
 
 //HTML Injection - <div class=‘cell’ id=‘n (1-30k)’ style=‘width: 28px; height: 28px;’></div>
@@ -50,11 +48,13 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+app.post('/signup', (req, res) => {
 
+});
 
+app.post('/signin', (req, res) => {
 
-
-
+});
 
 app.post('/addPixelArt', (req, res) => {
   var data = {};
