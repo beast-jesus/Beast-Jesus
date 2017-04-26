@@ -47,6 +47,14 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+app.post('/signup', (req, res) => {
+
+});
+
+app.post('/signin', (req, res) => {
+
+});
+
 app.post('/addPixelArt', (req, res) => {
   var data = {};
   $('.cell').each(function(){
@@ -91,5 +99,6 @@ function checkOrientation (orientation) {
     createGrid(150, 200)
   }
 }
+
 
 module.exports = app;
