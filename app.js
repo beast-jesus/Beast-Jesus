@@ -15,7 +15,6 @@ var key = process.env.COOKIE_KEY || 'lkashdflkjhasdkfjhasklj'
 
 
 var index = require('./routes/index');
-var users = require('./routes/users');
 var gallery = require('./routes/gallery');
 var user = require('./routes/user');
 var pixel_page = require('./routes/pixel_page');
@@ -36,7 +35,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/', index);
-app.use('/users', users);
 app.use('/pixel_page', pixel_page);
 app.use('/gallery', gallery);
 app.use('user', user);
@@ -60,14 +58,15 @@ app.use(function(err, req, res, next) {
 });
 
 app.post('/signup', function (req, res, next) {
-
     queries.findUserIfExists().where({
             email: req.body.email
         }).first()
         .then(function (user) {
             if (user) {
-                res.render(user)
+                console.log('I exist!')
+                res.render('user')
             } else {
+                'I do not exist'
                 bcrypt.hash(req.body.password, 10).then(function (hash) {
                     req.body.password = hash;
                     console.log(req.body);

@@ -4,6 +4,16 @@ function addUser(data) {
   return pg('user').insert(data);
 };
 
+function findUserIfExists(data) {
+  return pg('user').select();
+};
+
+function userTable(data) {
+  return pg('user').insert({
+    email: obj.email,
+    password: obj.password
+  });
+};
 function getPixelArtByUser(data) {
   return pg('user').join('pixel_art', 'user.id', 'pixel_art.user_id').where('user.id', data.id);
 };
@@ -30,10 +40,12 @@ function changePassword(data) {
 
 module.exports = {
   addUser,
+  findUserIfExists,
   getPixelArtByUser,
   getPixelArtByArtwork,
   addPixelArt,
   addVote,
   deletePixelArt,
   changePassword,
+  userTable
 }
