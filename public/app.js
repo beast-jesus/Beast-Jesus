@@ -38,8 +38,9 @@ function getId(){
   })
 }
 function updatePage(farm, server, id, secret){
-  $(".origArt").append("<img src='https://c1.staticflickr.com/" + farm[random] + "/" + server[random] + "/" + id[random] + "_" + secret[random] + "_z.jpg' alt='" + title[random]+ "'>")
-}
+    $(".origArt").append("<img src='https://c1.staticflickr.com/" + farm[random] + "/" + server[random] + "/" + id[random] + "_" + secret[random] + "_z.jpg' alt='" + title[random]+ "'>")
+
+  }
 
 
 
@@ -60,7 +61,7 @@ colorPicker.addEventListener('click', function () {
 })
 function createCell (){
   var gridContainer = document.querySelector(".pixel")
-  for (var i=0; i<4800; i++){
+  for (var i=0; i<4872; i++){
     var newCell = document.createElement('div')
     // set <div class='cell'>
     newCell.classList.add('cell')
