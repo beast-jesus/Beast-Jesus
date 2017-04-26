@@ -11,6 +11,7 @@ var bodyParser = require('body-parser');
 var cookieSession = require('cookie-session')
 var bcrypt = require('bcrypt')
 var key = process.env.COOKIE_KEY || 'lkashdflkjhasdkfjhasklj'
+var queries = require('./db/queries.js');
 
 
 
@@ -110,7 +111,7 @@ app.post('/addPixelArt', (req, res) => {
     }
   });
   req.body.div_data = data;
-  addPixelArt(req.body)
+  queries.addPixelArt(req.body)
   .then(data => {
     res.render('/', {data});
   });
