@@ -54,6 +54,7 @@ app.use(function(err, req, res, next) {
 });
 
 app.post('/signup', function (req, res, next) {
+
     queries.findUserIfExists().where({
             email: req.body.email
         }).first()
@@ -91,6 +92,7 @@ app.post('/signin', function (req, res, next) {
                 res.send('invalid login')
             }
         })
+
 })
 app.listen(3000)
 
