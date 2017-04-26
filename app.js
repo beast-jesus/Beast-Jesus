@@ -11,6 +11,9 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var user = require('./routes/user');
+var pixel_page = require('./routes/pixel_page');
+var gallery = require('./routes/gallery');
 
 var app = express();
 
@@ -27,7 +30,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
+app.use('/users', users);//Any idea what this is for?
+app.use('/pixel_page', pixel_page);
+app.use('/user', user);
+app.use('/gallery', gallery);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
