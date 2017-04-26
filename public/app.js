@@ -51,7 +51,7 @@ colorPicker.addEventListener('click', function () {
 })
 function createCell (){
   var gridContainer = document.querySelector(".container")
-  for (var i=0; i<30000; i++){
+  for (var i=0; i<4800; i++){
     var newCell = document.createElement('div')
     // set <div class='cell'>
     newCell.classList.add('cell')
