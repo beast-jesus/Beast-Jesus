@@ -14,8 +14,11 @@ var key = process.env.COOKIE_KEY || 'lkashdflkjhasdkfjhasklj'
 
 
 
-var index = require('./routes/index');s
+var index = require('./routes/index');
 var users = require('./routes/users');
+var gallery = require('./routes/gallery');
+var user = require('./routes/user');
+var pixel_page = require('./routes/pixel_page');
 
 var app = express();
 
@@ -34,6 +37,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/pixel_page', pixel_page);
+app.use('/gallery', gallery);
+app.use('user', user);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -94,7 +100,6 @@ app.post('/signin', function (req, res, next) {
         })
 
 })
-app.listen(3000)
 
 app.post('/addPixelArt', (req, res) => {
   var data = {};
