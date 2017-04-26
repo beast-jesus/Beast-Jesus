@@ -22,9 +22,10 @@ h1, p {
   height: 800px;
 }
 .cell {
-  width: 4px;
-  height: 4px;
+  width: 10px;
+  height: 10px;
   border: 1px solid black;
+  background-color: white;
 }
 .paint-container {
   display: flex;
