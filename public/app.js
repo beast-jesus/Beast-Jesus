@@ -20,12 +20,21 @@ function getId(){
       secret.push(data.photos.photo[i].secret)
       title.push(data.photos.photo[i].title)
     }
+    if (id[random] === 34119127771 || id[random] === 33865752870 || id[random] === 34119127641 || id[random] === 34119127511 || id[random] === 33865752520 || id[random] === 34249268725 || id[random] === 34118930141 || id[random] === 34118929981 || id[random] === 33439283403 || id[random] === 33439283263){
+      orientation = "portrait"
+    } else {
+      orientation = "landscape"
+    }
+
+
     console.log(id[random])
     console.log(farm[random])
     console.log(server[random])
     console.log(secret[random])
     console.log ('https://c1.staticflickr.com/' + farm[random] + '/' + server[random] + '/' + id[random] + '_' + secret[random] + '_z.jpg')
     updatePage(farm, server, id, secret)
+
+
   })
 }
 function updatePage(farm, server, id, secret){
@@ -34,11 +43,11 @@ function updatePage(farm, server, id, secret){
 
 
 
-if (id[random] === 34119127771 || id[random] === 33865752870 || id[random] === 34119127641 || id[random] === 34119127511 || id[random] === 33865752520 || id[random] === 34249268725 || id[random] === 34118930141 || id[random] === 34118929981 || id[random] === 33439283403 || id[random] === 33439283263){
-  orientation = "portrait"
-} else {
-  orientation = "landscape"
-}
+// if (id[random] === 34119127771 || id[random] === 33865752870 || id[random] === 34119127641 || id[random] === 34119127511 || id[random] === 33865752520 || id[random] === 34249268725 || id[random] === 34118930141 || id[random] === 34118929981 || id[random] === 33439283403 || id[random] === 33439283263){
+//   orientation = "portrait"
+// } else {
+//   orientation = "landscape"
+// }
 
 //pixel grid
 var colorPicker = document.querySelector('.paint-container')
@@ -50,7 +59,7 @@ colorPicker.addEventListener('click', function () {
   currentColor=color
 })
 function createCell (){
-  var gridContainer = document.querySelector(".container")
+  var gridContainer = document.querySelector(".pixel")
   for (var i=0; i<4800; i++){
     var newCell = document.createElement('div')
     // set <div class='cell'>
