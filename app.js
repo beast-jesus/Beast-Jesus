@@ -8,9 +8,17 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var cookieSession = require('cookie-session')
+var bcrypt = require('bcrypt')
+var key = process.env.COOKIE_KEY || 'lkashdflkjhasdkfjhasklj'
+
+
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var gallery = require('./routes/gallery');
+var user = require('./routes/user');
+var pixel_page = require('./routes/pixel_page');
 
 var app = express();
 
@@ -26,8 +34,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 app.use('/', index);
 app.use('/users', users);
+app.use('/pixel_page', pixel_page);
+app.use('/gallery', gallery);
+app.use('user', user);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -47,6 +59,48 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+app.post('/signup', function (req, res, next) {
+
+    queries.findUserIfExists().where({
+            email: req.body.email
+        }).first()
+        .then(function (user) {
+            if (user) {
+                res.render(user)
+            } else {
+                bcrypt.hash(req.body.password, 10).then(function (hash) {
+                    req.body.password = hash;
+                    console.log(req.body);
+                    queries.userTable(req.body)
+                        .then(function () {
+                            res.send('new user')
+                        })
+                })
+            }
+        })
+})
+
+app.post('/signin', function (req, res, next) {
+    queries.findUserIfExists().where({
+            email: req.body.email
+        }).first()
+        .then(function (user) {
+            if (user) {
+                bcrypt.compare(req.body.password, user.password).then(function (data) {
+                    if (data) {
+                        req.session.id = req.body.id
+                        res.send('logged in!')
+                    } else {
+                        res.send('incorrect password')
+                    }
+                })
+            } else {
+                res.send('invalid login')
+            }
+        })
+
+})
+
 app.post('/addPixelArt', (req, res) => {
   var data = {};
   $('.cell').each(function(){
@@ -62,34 +116,7 @@ app.post('/addPixelArt', (req, res) => {
   });
 });
 
-function createGrid (x, y) {
-	while (grid.firstChild) {
-  	grid.removeChild(grid.firstChild);
-  }
-	// set grid width so that divs will properly wrap
-  grid.style.width = (6) * x + 'px'
-  // get total number of new individual cells needed
-  var cellCount = x * y
-  // iterate through and create each new cell
-  for (var i = 1; i <= cellCount; i++) {
-    var newCell = document.createElement('div')
-    // set <div class='cell'>
-    newCell.classList.add('cell')
-    newCell.setAttribute('id', i)
-    // newCell.textContent = i
-    grid.appendChild(newCell)
-    // set cell size to requested px size
-    newCell.style.width = '4px'
-    newCell.style.height = '4px'
-  }
-}
 
-function checkOrientation (orientation) {
-  if (orientation === 'landscape') {
-    createGrid(200, 150)
-  } else {
-    createGrid(150, 200)
-  }
-}
+
 
 module.exports = app;
