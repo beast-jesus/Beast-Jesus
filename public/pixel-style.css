@@ -1,17 +1,11 @@
-h1, p {
-  text-align: center;
-}
 
-.grid {
-  border: 10px solid black;
-  background-color: white;
-  width: 200px;
-  height: 200px;
-}
 .container {
   display: flex;
   flex-wrap: wrap;
-
+}
+.pixel{
+  display: flex;
+  flex-wrap: wrap;
 }
 .landscape{
   width: 800px;
@@ -26,6 +20,10 @@ h1, p {
   height: 10px;
   border: 1px solid black;
   background-color: white;
+}
+.origArt-container{
+  display: flex;
+  width:
 }
 .paint-container {
   display: flex;
