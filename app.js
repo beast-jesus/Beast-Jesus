@@ -8,6 +8,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var cookieSession = require('cookie-session')
+var bcrypt = require('bcrypt')
+var key = process.env.COOKIE_KEY || 'lkashdflkjhasdkfjhasklj'
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -53,13 +56,46 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.post('/signup', (req, res) => {
+app.post('/signup', function (req, res, next) {
+   queries.findUserIfExists().where({
+           email: req.body.email
+       }).first()
+       .then(function (user) {
+           if (user) {
+               res.render(user)
+           } else {
+               bcrypt.hash(req.body.password, 10).then(function (hash) {
+                   req.body.password = hash;
+                   console.log(req.body);
+                   queries.userTable(req.body)
+                       .then(function () {
+                           res.send('new user')
+                       })
+               })
+           }
+       })
+})
 
-});
-
-app.post('/signin', (req, res) => {
-
-});
+app.post('/signin', function (req, res, next) {
+   queries.findUserIfExists().where({
+           email: req.body.email
+       }).first()
+       .then(function (user) {
+           if (user) {
+               bcrypt.compare(req.body.password, user.password).then(function (data) {
+                   if (data) {
+                       req.session.id = req.body.id
+                       res.send('logged in!')
+                   } else {
+                       res.send('incorrect password')
+                   }
+               })
+           } else {
+               res.send('invalid login')
+           }
+       })
+})
+app.listen(3000)
 
 app.post('/addPixelArt', (req, res) => {
   var data = {};
