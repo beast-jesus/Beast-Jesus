@@ -12,11 +12,10 @@ var cookieSession = require('cookie-session')
 var bcrypt = require('bcrypt')
 var key = process.env.COOKIE_KEY || 'lkashdflkjhasdkfjhasklj'
 
-var index = require('./routes/index');
+
+
+var index = require('./routes/index');s
 var users = require('./routes/users');
-var user = require('./routes/user');
-var pixel_page = require('./routes/pixel_page');
-var gallery = require('./routes/gallery');
 
 var app = express();
 
@@ -32,11 +31,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 app.use('/', index);
-app.use('/users', users);//Any idea what this is for?
-app.use('/pixel_page', pixel_page);
-app.use('/user', user);
-app.use('/gallery', gallery);
+app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -57,43 +54,45 @@ app.use(function(err, req, res, next) {
 });
 
 app.post('/signup', function (req, res, next) {
-   queries.findUserIfExists().where({
-           email: req.body.email
-       }).first()
-       .then(function (user) {
-           if (user) {
-               res.render(user)
-           } else {
-               bcrypt.hash(req.body.password, 10).then(function (hash) {
-                   req.body.password = hash;
-                   console.log(req.body);
-                   queries.userTable(req.body)
-                       .then(function () {
-                           res.send('new user')
-                       })
-               })
-           }
-       })
+
+    queries.findUserIfExists().where({
+            email: req.body.email
+        }).first()
+        .then(function (user) {
+            if (user) {
+                res.render(user)
+            } else {
+                bcrypt.hash(req.body.password, 10).then(function (hash) {
+                    req.body.password = hash;
+                    console.log(req.body);
+                    queries.userTable(req.body)
+                        .then(function () {
+                            res.send('new user')
+                        })
+                })
+            }
+        })
 })
 
 app.post('/signin', function (req, res, next) {
-   queries.findUserIfExists().where({
-           email: req.body.email
-       }).first()
-       .then(function (user) {
-           if (user) {
-               bcrypt.compare(req.body.password, user.password).then(function (data) {
-                   if (data) {
-                       req.session.id = req.body.id
-                       res.send('logged in!')
-                   } else {
-                       res.send('incorrect password')
-                   }
-               })
-           } else {
-               res.send('invalid login')
-           }
-       })
+    queries.findUserIfExists().where({
+            email: req.body.email
+        }).first()
+        .then(function (user) {
+            if (user) {
+                bcrypt.compare(req.body.password, user.password).then(function (data) {
+                    if (data) {
+                        req.session.id = req.body.id
+                        res.send('logged in!')
+                    } else {
+                        res.send('incorrect password')
+                    }
+                })
+            } else {
+                res.send('invalid login')
+            }
+        })
+
 })
 app.listen(3000)
 
