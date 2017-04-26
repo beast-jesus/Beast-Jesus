@@ -8,12 +8,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var cookieSession = require('cookie-session')
 
-var index = require('./routes/index');
+var index = require('./routes/index');s
 var users = require('./routes/users');
-var user = require('./routes/user');
-var pixel_page = require('./routes/pixel_page');
-var gallery = require('./routes/gallery');
 
 var app = express();
 
@@ -29,11 +27,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//__________________
+
+
 app.use('/', index);
-app.use('/users', users);//Any idea what this is for?
-app.use('/pixel_page', pixel_page);
-app.use('/user', user);
-app.use('/gallery', gallery);
+app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
