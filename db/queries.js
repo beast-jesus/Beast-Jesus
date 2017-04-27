@@ -10,8 +10,12 @@ function findUserIfExists() {
 
 function userTable(obj) {
   return pg('user').insert({
+    first_name: obj.first_name,
+    last_name: obj.last_name,
+    username: obj.email,
     email: obj.email,
-    password: obj.password
+    password: obj.password,
+    isAdmin: false
   });
 };
 function getPixelArtByUser(data) {

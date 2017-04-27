@@ -32,6 +32,11 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(cookieSession({
+  name: 'session',
+  keys: [key],
+  maxAge: 24*60*60*1000
+}))
 app.use(express.static(path.join(__dirname, 'public')));
 
 
@@ -89,8 +94,10 @@ app.post('/signin', function (req, res, next) {
             if (user) {
                 bcrypt.compare(req.body.password, user.password).then(function (data) {
                     if (data) {
-                        req.session.id = req.body.id
-                        res.send('logged in!')
+                        console.log(`req.body `,req.body)
+                        req.session.id = user.id
+                        res.redirect('\pixel_page');
+                        console.log(`req.session: `,req.session)
                     } else {
                         res.send('incorrect password')
                     }
