@@ -59,8 +59,9 @@ function createCell (){
   var gridContainer = document.querySelector(".pixel")
   for (var i=0; i<6825; i++){
     var newCell = document.createElement('div')
-    // set <div class='cell'>
+    // set <div class='cell' id=i>
     newCell.classList.add('cell')
+    newCell.setAttribute('id', i)
     gridContainer.appendChild(newCell)
   }
   if (orientation === "landscape"){
