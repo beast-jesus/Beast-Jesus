@@ -31,7 +31,7 @@ a {
   transition: .5s ease;
 }
 
-.prof, .gallery{
+.prof, .gallery, .pixelate{
   margin-right: 20px;
   width: 250px;
   height: 100%;
@@ -41,7 +41,7 @@ a {
   background-color: #222;
   font-family: 'Sigmar One', cursive;
 }
-.prof:hover, .gallery:hover{
+.prof:hover, .gallery:hover, .pixel:hover{
   background-color: #444;
   opacity: 0.4;
 }

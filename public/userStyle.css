@@ -30,8 +30,7 @@ a {
   -webkit-transition: .5s ease;
   transition: .5s ease;
 }
-
-.prof, .gallery{
+.prof, .gallery, .pixelate{
   margin-right: 20px;
   width: 250px;
   height: 100%;
@@ -41,7 +40,7 @@ a {
   background-color: #222;
   font-family: 'Sigmar One', cursive;
 }
-.prof:hover, .gallery:hover{
+.prof:hover, .gallery:hover, .pixel:hover{
   background-color: #444;
   opacity: 0.4;
 }
@@ -50,41 +49,4 @@ a {
   height: 100%;
   width: 100%;
   overflow: hidden;
-}
-.container{
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 50px;
-  height: 700px;
-  overflow: hidden;
-}
-aside.art-gallery{
-  width: 25%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  border-right: 10px solid black;
-}
-.three-pics img{
-  width: 30%;
-  height: 14%;
-}
-
-.three-pics img:hover{
-  opacity: 0.4;
-}
-
-main.pixel-display{
-  margin-left: 10px;
-  width: 73%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.pixel-display-pics img{
-  width: 33%;
-  height: 25%;
-}
-.rate {
-  margin: 0;
 }
