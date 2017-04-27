@@ -1,3 +1,6 @@
+body{
+  background-color: grey;
+}
 nav{
   display: flex;
   position: absolute;
@@ -21,7 +24,12 @@ nav{
   display: flex;
   margin-top: 15px;
 }
-
+a {
+  text-decoration: none;
+  color: #87BA8D;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
 .prof, .gallery{
   margin-right: 20px;
   width: 250px;
@@ -71,11 +79,21 @@ nav{
   justify-content: center;
 }
 .save{
-  margin-top: 30px;
+  margin-top: 10px;
   background-color: lime;
   height: 40px;
   width: 100%;
   font-size: 20px;
+}
+.description{
+  opacity: .8;
+  color: #fff;
+  background-color: #222;
+  font-size: 18px;
+  margin-top: 10px;
+  width: 100%;
+  border: 5px solid #222;
+  text-align: center;
 }
 .paint-container {
   display: flex;
