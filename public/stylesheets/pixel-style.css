@@ -71,21 +71,11 @@ nav{
   justify-content: center;
 }
 .save{
-  margin-top: 10px;
+  margin-top: 30px;
   background-color: lime;
   height: 40px;
   width: 100%;
   font-size: 20px;
-}
-.description{
-  opacity: .8;
-  color: #fff;
-  background-color: #222;
-  font-size: 18px;
-  margin-top: 10px;
-  width: 100%;
-  border: 5px solid #222;
-  text-align: center;
 }
 .paint-container {
   display: flex;

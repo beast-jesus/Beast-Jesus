@@ -35,20 +35,16 @@ function getId(){
     updatePage(farm, server, id, secret)
 
 
+
   })
 }
 function updatePage(farm, server, id, secret){
     $(".origArt").append("<img src='https://c1.staticflickr.com/" + farm[random] + "/" + server[random] + "/" + id[random] + "_" + secret[random] + "_z.jpg' alt='" + title[random]+ "'>")
-
-  }
-
+}
 
 
-// if (id[random] === 34119127771 || id[random] === 33865752870 || id[random] === 34119127641 || id[random] === 34119127511 || id[random] === 33865752520 || id[random] === 34249268725 || id[random] === 34118930141 || id[random] === 34118929981 || id[random] === 33439283403 || id[random] === 33439283263){
-//   orientation = "portrait"
-// } else {
-//   orientation = "landscape"
-// }
+
+
 
 //pixel grid
 var colorPicker = document.querySelector('.paint-container')
@@ -61,7 +57,7 @@ colorPicker.addEventListener('click', function () {
 })
 function createCell (){
   var gridContainer = document.querySelector(".pixel")
-  for (var i=0; i<4872; i++){
+  for (var i=0; i<6825; i++){
     var newCell = document.createElement('div')
     // set <div class='cell'>
     newCell.classList.add('cell')
