@@ -1,11 +1,25 @@
 const pg = require('./knex');
 
 function addUser(data) {
-  return pg('user').insert(data);
+  return pg('myuser').insert(data);
 };
 
+function findUserIfExists() {
+  return pg('myuser').select();
+};
+
+function userTable(obj) {
+  return pg('myuser').insert({
+    first_name: obj.first_name,
+    last_name: obj.last_name,
+    username: obj.email,
+    email: obj.email,
+    password: obj.password,
+    isAdmin: false
+  });
+};
 function getPixelArtByUser(data) {
-  return pg('user').join('pixel_art', 'user.id', 'pixel_art.user_id').where('user.id', data.id);
+  return pg('myuser').join('pixel_art', 'myuser.id', 'pixel_art.user_id').where('myuser.id', data.id);
 };
 
 function getPixelArtByArtwork(data) {
@@ -25,15 +39,23 @@ function deletePixelArt(data) {
 };
 
 function changePassword(data) {
-  return pg('user').where('id', data.id).update('password', data.password);
+  return pg('myuser').where('id', data.id).update('password', data.password);
 };
 
+
+
+function getPainting(data){
+  return pg('artwork').select();
+}
 module.exports = {
   addUser,
+  findUserIfExists,
   getPixelArtByUser,
   getPixelArtByArtwork,
   addPixelArt,
   addVote,
   deletePixelArt,
   changePassword,
+  userTable,
+  getPainting
 }

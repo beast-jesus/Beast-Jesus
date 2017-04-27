@@ -3,30 +3,79 @@
   <head>
     <meta charset="utf-8">
     <title>Pixelated</title>
-
-    <link rel="stylesheet" href="pixel-style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Sigmar+One" rel="stylesheet">
+    <link rel="stylesheet" href="./stylesheets/pixel-style.css">
   </head>
   <body>
-    <div class = "container">
-        <div class="pixel">
-
+    <nav>
+      <h3 class="nav-title">Beast Jesus</h3>
+      <div class="links">
+        <a class="prof" href="/user">Your Profile</a>
+        <a class="gallery" href="/gallery">Gallery</a>
+      </div>
+    </nav>
+    <div class="page-container">
+      <div class = "container">
+          <div class="pixel">
+          </div>
+          <div class="art">
+            <div class="origArt">
+              {{#data}}
+                <img src="{{url}}" alt="{{title}}">
+              {{/data}}
+            </div>
+              <form class="submit-form" action="/addPixelArt" method="post">
+                <button class="save">SAVE!</button>
+              </form>
+              <div class="description">
+                Try to recreate the painting above. Pick a color and click anywhere on the white pixel board to distrubute that color.  Good luck!
+              </div>
+          </div>
+      </div>
+      <div class = "paint-container">
+        <div class ="paint-color">
         </div>
-        <div class="origArt">
-
+        <div class = "paint-color2">
         </div>
+        <div class = "paint-color3">
+        </div>
+        <div class = "paint-color4">
+        </div>
+        <div class = "paint-color5">
+        </div>
+        <div class = "paint-color6">
+        </div>
+        <div class = "paint-color7">
+        </div>
+        <div class = "paint-color8">
+        </div>
+        <div class = "paint-color9">
+        </div>
+        <div class = "paint-color10">
+        </div>
+        <div class = "paint-color11">
+        </div>
+        <div class = "paint-color12">
+        </div>
+        <div class = "paint-color13">
+        </div>
+        <div class = "paint-color14">
+        </div>
+        <div class = "paint-color15">
+        </div>
+        <div class = "paint-color16">
+        </div>
+        <div class = "paint-color17">
+        </div>
+        <div class = "paint-color18">
+        </div>
+        <div class = "paint-color19">
+        </div>
+        <div class = "paint-color20">
+        </div>
+      </div>
     </div>
-    <div class = "paint-container">
-      <div class ="paint-color">
-      </div>
-      <div class = "paint-color2">
-      </div>
-      <div class = "paint-color3">
-      </div>
-      <div class = "paint-color4">
-      </div>
-      <div class = "paint-color5">
-      </div>
-    </div>
+
 
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script src ="app.js"></script>
