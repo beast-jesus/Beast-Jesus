@@ -40,7 +40,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/pixel_page', pixel_page);
 app.use('/gallery', gallery);
-app.use('user', user);
+app.use('/user', user);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
