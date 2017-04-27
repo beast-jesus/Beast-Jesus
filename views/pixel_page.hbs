@@ -20,9 +20,9 @@
           </div>
           <div class="art">
             <div class="origArt">
-              {{#each data}}
-                <img src="{{this.url}}" alt="{{this.title}}">
-              {{/each}}
+              {{#data}}
+                <img src="{{url}}" alt="{{title}}">
+              {{/data}}
             </div>
               <form class="submit-form" action="/addPixelArt" method="post">
                 <button class="save">SAVE!</button>
