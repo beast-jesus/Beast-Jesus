@@ -1,0 +1,59 @@
+body {
+  background: #314971;
+  font-family: 'Lato', sans-serif;
+
+}
+
+nav {
+  width: 80%;
+  margin-left: 9.5%;
+  display: flex;
+  align-self: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #978FC4;
+  text-decoration: none;
+  color: #eee;
+}
+
+nav /* unvisited link */
+a:link {
+  text-decoration: none;
+    color: #eee;;
+}
+
+/* visited link */
+nav a:visited {
+    color: #eee;
+}
+
+/* mouse over link */
+nav a:hover {
+    color:  #FCFF81;
+}
+
+/* selected link */
+nav a:active {
+    color: #87BA8D;
+}
+
+.name {
+  font-family: 'Sigmar One', cursive;
+  color: #eee;
+  font-size: 3vw;
+}
+
+.links {
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 1.5%;
+}
+
+
+blue {
+  hsl(240, 50%, 35%)
+  hsl(240, 50%, 50%)
+  hsl(240, 50%, 65%)
+
+}

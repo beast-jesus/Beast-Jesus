@@ -1,9 +1,18 @@
 var express = require('express');
 var router = express.Router();
+var queries = require('../db/queries')
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('pixel_page', { title: 'Beast-Jesus app for real!' });
-});
+router.get('/', (req, res) => {
+  console.log("hit route")
+  queries.getPainting()
+  .then(data => {
+
+    var randomIndex = [Math.floor(Math.random() * ((data.length)-1))]
+    data=data[randomIndex]
+    console.log(data)
+    res.render('pixel_page', {data})
+  })
+})
+
 
 module.exports = router;

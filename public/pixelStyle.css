@@ -1,3 +1,6 @@
+body{
+  background-color: grey;
+}
 nav{
   display: flex;
   position: absolute;
@@ -21,8 +24,13 @@ nav{
   display: flex;
   margin-top: 15px;
 }
-
-.prof, .gallery{
+a {
+  text-decoration: none;
+  color: #87BA8D;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
+.prof, .gallery, .pixel{
   margin-right: 20px;
   width: 250px;
   height: 100%;
@@ -32,7 +40,7 @@ nav{
   background-color: #222;
   font-family: 'Sigmar One', cursive;
 }
-.prof:hover, .gallery:hover{
+.prof:hover, .gallery:hover, .pixel:hover{
   background-color: #444;
   opacity: 0.4;
 }
@@ -45,10 +53,9 @@ nav{
 .container {
   display: flex;
   flex-wrap: wrap;
-  margin-left: 50px;
+  margin-left: 30px;
   height: 700px;
   overflow: hidden;
-
 }
 .pixel{
   display: flex;
@@ -91,7 +98,7 @@ nav{
   display: flex;
   flex-wrap: wrap;
   width: 60%;
-  margin-left: 50px;
+  margin-left: 30px;
   margin-top: 20px;
 }
 .paint-color, .paint-color2, .paint-color3, .paint-color4, .paint-color5, .paint-color6, .paint-color7, .paint-color8, .paint-color9, .paint-color10, .paint-color11, .paint-color12, .paint-color13, .paint-color14, .paint-color15, .paint-color16, .paint-color17, .paint-color18, .paint-color19, .paint-color20{
