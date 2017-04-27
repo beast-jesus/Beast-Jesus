@@ -12,6 +12,7 @@ var cookieSession = require('cookie-session')
 var bcrypt = require('bcrypt')
 var queries = require('./db/queries')
 var key = process.env.COOKIE_KEY || 'lkashdflkjhasdkfjhasklj'
+var queries = require('./db/queries.js');
 
 
 
@@ -43,7 +44,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/pixel_page', pixel_page);
 app.use('/gallery', gallery);
-app.use('user', user);
+app.use('/user', user);
 
 // // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
@@ -118,7 +119,7 @@ app.post('/addPixelArt', (req, res) => {
     }
   });
   req.body.div_data = data;
-  addPixelArt(req.body)
+  queries.addPixelArt(req.body)
   .then(data => {
     res.render('/', {data});
   });
