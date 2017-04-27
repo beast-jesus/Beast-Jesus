@@ -42,6 +42,11 @@ function changePassword(data) {
   return pg('user').where('id', data.id).update('password', data.password);
 };
 
+
+
+function getPainting(data){
+  return pg('artwork').select();
+}
 module.exports = {
   addUser,
   findUserIfExists,
@@ -51,5 +56,6 @@ module.exports = {
   addVote,
   deletePixelArt,
   changePassword,
-  userTable
+  userTable,
+  getPainting
 }
