@@ -1,0 +1,161 @@
+nav{
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-family: 'Sigmar One', cursive;
+  opacity: .8;
+  color: #fff;
+  background-color: #222;
+  justify-content: space-between;
+}
+.nav-title{
+  margin-left: 50px;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 40px;
+  font-family: 'Sigmar One', cursive;
+}
+.links{
+  display: flex;
+  margin-top: 15px;
+}
+
+.prof, .gallery{
+  margin-right: 20px;
+  width: 250px;
+  height: 100%;
+  justify-content: space-around;
+  font-size: 20px;
+  text-align: center;
+  background-color: #222;
+  font-family: 'Sigmar One', cursive;
+}
+.prof:hover, .gallery:hover{
+  background-color: #444;
+  opacity: 0.4;
+}
+.page-container{
+  margin-top: 75px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 50px;
+  height: 700px;
+  overflow: hidden;
+
+}
+.pixel{
+  display: flex;
+  flex-wrap: wrap;
+  width: 60%;
+}
+.cell {
+  width: 12px;
+  height: 12px;
+  background-color: white;
+}
+.art{
+  display: flex;
+  width: 40%;
+  flex-direction: column;
+
+}
+.origArt{
+  margin-left: 10px;
+  justify-content: center;
+}
+.save{
+  margin-top: 10px;
+  background-color: lime;
+  height: 40px;
+  width: 100%;
+  font-size: 20px;
+}
+.description{
+  opacity: .8;
+  color: #fff;
+  background-color: #222;
+  font-size: 18px;
+  margin-top: 10px;
+  width: 100%;
+  border: 5px solid #222;
+  text-align: center;
+}
+.paint-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 60%;
+  margin-left: 50px;
+  margin-top: 20px;
+}
+.paint-color, .paint-color2, .paint-color3, .paint-color4, .paint-color5, .paint-color6, .paint-color7, .paint-color8, .paint-color9, .paint-color10, .paint-color11, .paint-color12, .paint-color13, .paint-color14, .paint-color15, .paint-color16, .paint-color17, .paint-color18, .paint-color19, .paint-color20{
+  border: 1px solid black;
+  width: 4.7%;
+  height: 20px;
+}
+.paint-color {
+  background-color: aquamarine;
+}
+.paint-color2 {
+  background-color: crimson;
+}
+.paint-color3 {
+  background-color: fuchsia;
+}
+.paint-color4 {
+  background-color: indigo;
+}
+.paint-color5 {
+  background-color: steelblue;
+}
+.paint-color6 {
+  background-color: rgb(70, 32, 26);
+}
+.paint-color7 {
+  background-color: rgb(32, 46, 65);
+}
+.paint-color8 {
+  background-color: rgb(220, 210, 194);
+}
+.paint-color9 {
+  background-color: rgb(227, 201, 194);
+}
+.paint-color10 {
+  background-color: rgb(48, 52, 37);
+}
+.paint-color11 {
+  background-color: rgb(86, 63, 40);
+}
+.paint-color12 {
+  background-color: rgb(203, 186, 115);
+}
+.paint-color13 {
+  background-color: rgb(196, 193, 189);
+}
+.paint-color14 {
+  background-color: rgb(113,119,86);
+}
+.paint-color15 {
+  background-color: rgb(147,68,66);
+}
+.paint-color16 {
+  background-color: rgb(250,252,245);
+}
+.paint-color17 {
+  background-color: rgb(82,82,82);
+}
+.paint-color18 {
+  background-color: rgb(200,107,104);
+}
+.paint-color19 {
+  background-color: rgb(180,157,47);
+}
+.paint-color20 {
+  background-color: rgb(63,91,162);
+}

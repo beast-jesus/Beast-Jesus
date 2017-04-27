@@ -2,9 +2,24 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>User Profile</title>
   </head>
   <body>
-
+    <nav>
+      <h3 class="nav-title">Beast Jesus</h3>
+      <div class="links">
+        <a class="prof" href="/user">Gallery</a>
+        <a class="gallery" href="/gallery">Pixelate It</a>
+      </div>
+    </nav>
+    <h1>Hello {{user.id}}</h1>
+    <div class="page-container">
+      <div class="container">
+        {{#users}}
+          {{#each}}
+          <img src="{{this.div_data}}" alt="">
+        {{/users}}
+      </div>
+    </div>
   </body>
 </html>

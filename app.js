@@ -8,12 +8,18 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var cookieSession = require('cookie-session')
+var bcrypt = require('bcrypt')
+var queries = require('./db/queries')
+var key = process.env.COOKIE_KEY || 'lkashdflkjhasdkfjhasklj'
+var queries = require('./db/queries.js');
+
+
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+var gallery = require('./routes/gallery');
 var user = require('./routes/user');
 var pixel_page = require('./routes/pixel_page');
-var gallery = require('./routes/gallery');
 
 var app = express();
 
@@ -27,39 +33,82 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(cookieSession({
+  name: 'session',
+  keys: [key],
+  maxAge: 24*60*60*1000
+}))
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 app.use('/', index);
-app.use('/users', users);//Any idea what this is for?
 app.use('/pixel_page', pixel_page);
-app.use('/user', user);
 app.use('/gallery', gallery);
+app.use('/user', user);
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
+// // catch 404 and forward to error handler
+// app.use(function(req, res, next) {
+//   var err = new Error('Not Found');
+//   err.status = 404;
+//   next(err);
+// });
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+// // error handler
+// app.use(function(err, req, res, next) {
+//   // set locals, only providing error in development
+//   res.locals.message = err.message;
+//   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
+//   // render the error page
+//   res.status(err.status || 500);
+//   res.render('error');
+// });
 
-app.post('/signup', (req, res) => {
+app.post('/signup', function (req, res, next) {
+    console.log(req.body)
+    queries.findUserIfExists().where({
+            email: req.body.email
+        }).first()
+        .then(function (user) {
+            if (user) {
+                console.log('I exist!')
+                res.render('pixel_page')
+            } else {
+                console.log('I do not exist')
+                bcrypt.hash(req.body.password, 10).then(function (hash) {
+                    req.body.password = hash;
+                    console.log(req.body);
+                    queries.userTable(req.body)
+                        .then(function () {
+                            res.send('new user')
+                        })
+                })
+            }
+        })
+})
 
-});
+app.post('/signin', function (req, res, next) {
+    queries.findUserIfExists().where({
+            email: req.body.email
+        }).first()
+        .then(function (user) {
+            if (user) {
+                bcrypt.compare(req.body.password, user.password).then(function (data) {
+                    if (data) {
+                        console.log(`req.body `,req.body)
+                        req.session.id = user.id
+                        res.redirect('\pixel_page');
+                        console.log(`req.session: `,req.session)
+                    } else {
+                        res.send('incorrect password')
+                    }
+                })
+            } else {
+                res.send('invalid login')
+            }
+        })
 
-app.post('/signin', (req, res) => {
-
-});
+})
 
 app.post('/addPixelArt', (req, res) => {
   var data = {};
@@ -70,41 +119,13 @@ app.post('/addPixelArt', (req, res) => {
     }
   });
   req.body.div_data = data;
-  addPixelArt(req.body)
+  queries.addPixelArt(req.body)
   .then(data => {
     res.render('/', {data});
   });
 });
 
-function createGrid (x, y) {
-	while (grid.firstChild) {
-  	grid.removeChild(grid.firstChild);
-  }
-	// set grid width so that divs will properly wrap
-  grid.style.width = (6) * x + 'px'
-  // get total number of new individual cells needed
-  var cellCount = x * y
-  // iterate through and create each new cell
-  for (var i = 1; i <= cellCount; i++) {
-    var newCell = document.createElement('div')
-    // set <div class='cell'>
-    newCell.classList.add('cell')
-    newCell.setAttribute('id', i)
-    // newCell.textContent = i
-    grid.appendChild(newCell)
-    // set cell size to requested px size
-    newCell.style.width = '4px'
-    newCell.style.height = '4px'
-  }
-}
 
-function checkOrientation (orientation) {
-  if (orientation === 'landscape') {
-    createGrid(200, 150)
-  } else {
-    createGrid(150, 200)
-  }
-}
 
 
 module.exports = app;
