@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>User Profile</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato|Sigmar+One" rel="stylesheet">
+    <link rel="stylesheet" href="user-style.css">
   </head>
   <body>
     <nav>
@@ -12,14 +14,15 @@
         <a class="gallery" href="/gallery">Pixelate It</a>
       </div>
     </nav>
-    <h1>Hello {{user.id}}</h1>
+    {{!-- <h1>Hello {{user.id}}</h1>
     <div class="page-container">
       <div class="container">
         {{#users}}
           {{#each}}
           <img src="{{this.div_data}}" alt="">
+          {{/each}}
         {{/users}}
       </div>
-    </div>
+    </div> --}}
   </body>
 </html>
