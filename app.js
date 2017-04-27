@@ -126,13 +126,4 @@ app.post('/addPixelArt', (req, res) => {
 });
 
 
-
-app.get('/pixel_page', (req, res) => {
-  console.log("hit route")
-  queries.getPainting()
-  .then(data => {
-    console.log(data)
-    res.render('pixel_page', {data})
-  })
-})
 module.exports = app;
