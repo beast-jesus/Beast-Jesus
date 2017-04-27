@@ -10,6 +10,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cookieSession = require('cookie-session')
 var bcrypt = require('bcrypt')
+var queries = require('./db/queries')
 var key = process.env.COOKIE_KEY || 'lkashdflkjhasdkfjhasklj'
 
 
@@ -39,34 +40,35 @@ app.use('/pixel_page', pixel_page);
 app.use('/gallery', gallery);
 app.use('user', user);
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
+// // catch 404 and forward to error handler
+// app.use(function(req, res, next) {
+//   var err = new Error('Not Found');
+//   err.status = 404;
+//   next(err);
+// });
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+// // error handler
+// app.use(function(err, req, res, next) {
+//   // set locals, only providing error in development
+//   res.locals.message = err.message;
+//   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
+//   // render the error page
+//   res.status(err.status || 500);
+//   res.render('error');
+// });
 
 app.post('/signup', function (req, res, next) {
+    console.log(req.body)
     queries.findUserIfExists().where({
             email: req.body.email
         }).first()
         .then(function (user) {
             if (user) {
                 console.log('I exist!')
-                res.render('user')
+                res.render('pixel_page')
             } else {
-                'I do not exist'
+                console.log('I do not exist')
                 bcrypt.hash(req.body.password, 10).then(function (hash) {
                     req.body.password = hash;
                     console.log(req.body);

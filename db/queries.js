@@ -4,11 +4,11 @@ function addUser(data) {
   return pg('user').insert(data);
 };
 
-function findUserIfExists(data) {
+function findUserIfExists() {
   return pg('user').select();
 };
 
-function userTable(data) {
+function userTable(obj) {
   return pg('user').insert({
     email: obj.email,
     password: obj.password
