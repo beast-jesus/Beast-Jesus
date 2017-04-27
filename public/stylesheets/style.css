@@ -19,30 +19,45 @@
   height: 100%;
   width: 25%;
   background: #A6A6A6;
+  background-image: url('../images/wave_disasterpiece.png');
+  background-size: cover;
+  opacity: .5;
 }
 
 .lilac {
   height: 100%;
   width: 25%;
   background: #978FC4;
+  background-image: url('../images/wave.jpg');
+  background-size: cover;
+  opacity: .5;
 }
 
 .navy {
   height: 100%;
   width: 25%;
   background: #314971;
+  background-image: url('../images/starry_night.png');
+  background-size: cover;
+  opacity: .5;
 }
 
 .green {
   height: 100%;
   width: 25%;
   background: #87BA8D;
+  background-image: url('../images/venus_disasterpiece.png');
+  background-size: cover;
+  opacity: .5;
 }
 
 .yellow {
   height: 100%;
   width: 25%;
   background: #FCFF81;
+  background-image: url('../images/venus.png');
+  background-size: cover;
+  opacity: .5;
 }
 
 .cover {
@@ -58,38 +73,47 @@
 
 }
 
+.buttons {
+  display: flex;
+}
+
 .origJesus {
   width: 100%;
   height: 45vh;
+  background: #333;
+  background-image: url('../images/origj.png');
   background-size: cover;
-  background-image: url('../images/orig.png');
 }
 
 .beastJesus {
   width: 100%;
   height: 45vh;
+  background-image: url('../images/beastj.png');
   background-size: cover;
-  background-image: url('../images/beast.png');
 }
 
 .title {
   font-family: 'Sigmar One', cursive;
   font-size: 7vw;
-  opacity: .8;
+  opacity: .95;
   color: #fff;
   position: absolute;
   top: 5%;
-  left: 45%;
+  left: 46.8%;
 }
 
-.login {
+.guest {
   height: 10%;
   width: 50%;
   background: #314971;
+  color: #fff;
   text-align: center;
   font-family: 'Sigmar One', cursive;
   align-content: center;
   padding-top: 7%;
+}
+.guest:hover {
+  background: #FCFF81;
 }
 
 .signUp {
@@ -108,12 +132,12 @@
 
 .tagline {
   font-family: 'Sigmar One', cursive;
-  font-size: 3vw;
-  opacity: .8;
-  color: #222;
+  font-size: 3.5vw;
+  opacity: 1;
+  color: #000;
   position: absolute;
   top: 50%;
-  left: 40%;
+  left: 38%;
 }
 
 .modal {
@@ -164,7 +188,7 @@ html {
 
 body {
   background: #c1bdba;
-  font-family: 'Titillium Web', sans-serif;
+  /*font-family: 'Titillium Web', sans-serif;*/
 }
 
 a {
