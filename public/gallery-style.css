@@ -1,4 +1,6 @@
-
+body{
+  background-color: grey;
+}
 nav{
   display: flex;
   position: absolute;
@@ -21,6 +23,12 @@ nav{
 .links{
   display: flex;
   margin-top: 15px;
+}
+a {
+  text-decoration: none;
+  color: #87BA8D;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
 }
 
 .prof, .gallery{
