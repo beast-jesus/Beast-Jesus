@@ -11,7 +11,7 @@
       <h3 class="nav-title">Beast Jesus</h3>
       <div class="links">
         <a class="prof" href="/user">Your Profile</a>
-        <a class="gallery" href="/gallery">Pixel Art Gallery</a>
+        <a class="gallery" href="/gallery">Gallery</a>
       </div>
     </nav>
     <div class="page-container">
@@ -20,9 +20,9 @@
           </div>
           <div class="art">
             <div class="origArt">
-              {{!-- {{#each}}
-                <img src="{{this.url}}" alt="{{this.title}}">
-              {{/each}} --}}
+              {{#data}}
+                <img src="{{url}}" alt="{{title}}">
+              {{/data}}
             </div>
               <form class="submit-form" action="/addPixelArt" method="post">
                 <button class="save">SAVE!</button>
