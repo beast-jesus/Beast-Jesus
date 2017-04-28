@@ -27,7 +27,7 @@ function getPixelArtByArtwork(data) {
 };
 
 function addPixelArt(data) {
-  return pg('pixel_art').insert(data);
+  return pg('pixel_art').select();
 };
 
 function addVote(data) {
@@ -41,8 +41,6 @@ function deletePixelArt(data) {
 function changePassword(data) {
   return pg('myuser').where('id', data.id).update('password', data.password);
 };
-
-
 
 function getPainting(data){
   return pg('artwork').select();
