@@ -74,12 +74,16 @@ aside.art-gallery{
   opacity: 0.4;
 }
 
-main.pixel-display{
+.pixel-display{
   margin-left: 10px;
   width: 73%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.pixel-display-pics {
+  width: 100%;
 }
 .pixel-display-pics img{
   width: 33%;
