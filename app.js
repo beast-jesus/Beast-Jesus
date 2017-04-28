@@ -74,9 +74,7 @@ app.post('/signup', function (req, res, next) {
         }).first()
         .then(function (user) {
             if (user) {
-                alert('User already exists');
                 res.redirect('/');
-
             } else {
                 console.log('I do not exist')
                 bcrypt.hash(req.body.password, 10).then(function (hash) {
@@ -84,7 +82,7 @@ app.post('/signup', function (req, res, next) {
                     console.log(req.body);
                     queries.userTable(req.body)
                         .then(function () {
-                            res.send('new user')
+                            res.redirect('/pixel_page')
                         })
                 })
             }
