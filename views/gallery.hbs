@@ -18,58 +18,20 @@
       <div class="container">
     <aside class="art-gallery">
       <div class="three-pics">
-        <img src="https://c1.staticflickr.com/5/4177/34119127771_e5b348f0bd_z.jpg">
-        <img src="https://c1.staticflickr.com/3/2828/33865752910_3dff6e8737_z.jpg">
-        <img src="https://c1.staticflickr.com/3/2888/34119127641_b346986164_z.jpg">
-        <img src="https://c1.staticflickr.com/3/2810/33865752380_45484d26fc_z.jpg">
-        <img src="https://c1.staticflickr.com/5/4177/34119127771_e5b348f0bd_z.jpg">
-        <img src="https://c1.staticflickr.com/3/2828/33865752910_3dff6e8737_z.jpg">
-        <img src="https://c1.staticflickr.com/3/2888/34119127641_b346986164_z.jpg">
-        <img src="https://c1.staticflickr.com/3/2810/33865752380_45484d26fc_z.jpg">
-        <img src="https://c1.staticflickr.com/5/4177/34119127771_e5b348f0bd_z.jpg">
-        <img src="https://c1.staticflickr.com/3/2828/33865752910_3dff6e8737_z.jpg">
-        <img src="https://c1.staticflickr.com/3/2888/34119127641_b346986164_z.jpg">
-        <img src="https://c1.staticflickr.com/3/2810/33865752380_45484d26fc_z.jpg">
-        <img src="https://c1.staticflickr.com/5/4177/34119127771_e5b348f0bd_z.jpg">
-        <img src="https://c1.staticflickr.com/3/2828/33865752910_3dff6e8737_z.jpg">
-        <img src="https://c1.staticflickr.com/3/2888/34119127641_b346986164_z.jpg">
-        <img src="https://c1.staticflickr.com/3/2810/33865752380_45484d26fc_z.jpg">
-        <img src="https://c1.staticflickr.com/5/4177/34119127771_e5b348f0bd_z.jpg">
-        <img src="https://c1.staticflickr.com/3/2828/33865752910_3dff6e8737_z.jpg">
-        <img src="https://c1.staticflickr.com/3/2888/34119127641_b346986164_z.jpg">
-        <img src="https://c1.staticflickr.com/3/2810/33865752380_45484d26fc_z.jpg">
+        {{#each data}}
+        <img  class="gallery-art" src="{{this.url}}" alt="{{this.title}}">
+        {{/each}}
       </div>
-      {{!-- {{#each data}}
-      <img  class="gallery-art" src="{{this.url}}" alt="{{this.title}}">
-      {{/each}} --}}
     </aside>
     <main class="pixel-display">
       <div class="pixel-display-pics">
-        <img src="https://c1.staticflickr.com/5/4177/34119127771_e5b348f0bd_z.jpg">
-        <img src="https://c1.staticflickr.com/3/2828/33865752910_3dff6e8737_z.jpg">
-        <img src="https://c1.staticflickr.com/3/2888/34119127641_b346986164_z.jpg">
-        <img src="https://c1.staticflickr.com/3/2810/33865752380_45484d26fc_z.jpg">
-        <img src="https://c1.staticflickr.com/5/4177/34119127771_e5b348f0bd_z.jpg">
-        <img src="https://c1.staticflickr.com/3/2828/33865752910_3dff6e8737_z.jpg">
-        <img src="https://c1.staticflickr.com/3/2888/34119127641_b346986164_z.jpg">
-        <img src="https://c1.staticflickr.com/3/2810/33865752380_45484d26fc_z.jpg">
-        <img src="https://c1.staticflickr.com/5/4177/34119127771_e5b348f0bd_z.jpg">
-        <img src="https://c1.staticflickr.com/3/2828/33865752910_3dff6e8737_z.jpg">
-        <img src="https://c1.staticflickr.com/3/2888/34119127641_b346986164_z.jpg">
-        <img src="https://c1.staticflickr.com/3/2810/33865752380_45484d26fc_z.jpg">
-        <img src="https://c1.staticflickr.com/5/4177/34119127771_e5b348f0bd_z.jpg">
-        <img src="https://c1.staticflickr.com/3/2828/33865752910_3dff6e8737_z.jpg">
-        <img src="https://c1.staticflickr.com/3/2888/34119127641_b346986164_z.jpg">
-        <img src="https://c1.staticflickr.com/3/2810/33865752380_45484d26fc_z.jpg">
-        <img src="https://c1.staticflickr.com/5/4177/34119127771_e5b348f0bd_z.jpg">
-        <img src="https://c1.staticflickr.com/3/2828/33865752910_3dff6e8737_z.jpg">
-        <img src="https://c1.staticflickr.com/3/2888/34119127641_b346986164_z.jpg">
-        <img src="https://c1.staticflickr.com/3/2810/33865752380_45484d26fc_z.jpg">
+        <img src="./images/wave_disasterpiece.png" alt="">
+        <img src="./images/venus_disasterpiece.png" alt="">
+        {{!-- {{#each data}}
+          <img class="pixel-art" src="{{this.div_data}}">
+          <p>{{this.value}} Rate!</p>
+        {{/each}} --}}
       </div>
-      {{!--{{#each data}}
-        <img class="pixel-art" src="{{this.div_data}}">
-        <p>{{this.value}} Rate!</p>
-      {{/each}}--}}
     </main>
   </div>
   </div>
