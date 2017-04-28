@@ -102,7 +102,7 @@ app.post('/signin', function (req, res, next) {
                         } else {
                             console.log(`req.body `, req.body)
                             req.session.id = user.id
-                            res.redirect('/pixel_page/' + user.id);
+                            res.redirect('/pixel_page');
                             console.log(`req.session: `, req.session)
                         }
                     } else {
