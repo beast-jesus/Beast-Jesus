@@ -381,3 +381,8 @@ textarea {
   align-content: center;
   padding-top: 7%;
 }
+
+a {
+  font-family: 'Sigmar One', cursive;
+  color: #fff;
+}
