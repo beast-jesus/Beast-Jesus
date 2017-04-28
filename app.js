@@ -116,24 +116,23 @@ app.post('/signin', function (req, res, next) {
 
 })
 
-app.post('/addPixelArt', (req, res) => {
-    var data = {};
-    $('.cell').each(function () {
-        var pixClass = this.class;
-        if (pixClass.length > 4) {
-            data[this.id] = pixClass.slice(5);
-        }
-    });
-    req.body.div_data = data;
-    queries.addPixelArt(req.body)
-        .then(data => {
-            res.render('/', {
-                data
-            });
-        });
-});
+// app.post('/addPixelArt', (req, res) => {
+//     var data = {};
+//     $('.cell').each(function () {
+//         var pixClass = this.class;
+//         if (pixClass.length > 4) {
+//             data[this.id] = pixClass.slice(5);
+//         }
+//     });
+//     req.body.div_data = data;
+//     queries.addPixelArt(req.body)
+//         .then(data => {
+//             res.render('/', {
+//                 data
+//             });
+//         });
+// });
 
 
 
 module.exports = app;
-
