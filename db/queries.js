@@ -27,23 +27,29 @@ function getPixelArtByArtwork(data) {
 };
 
 function addPixelArt(data) {
-  return pg('pixel_art').select();
+  return pg('pixel_art').insert({
+    div_data: data.div_data,
+    artwork_id: data.artwork_id
+  });
 };
 
 function addVote(data) {
   return pg('vote').insert(data);
 };
 
-function deletePixelArt(data) {
-  return pg('pixel_art').where('id', data.id).del();
+function deletePixelArt(id) {
+  return pg('pixel_art').where('id', '=', id).del();
 };
 
 function changePassword(data) {
   return pg('myuser').where('id', data.id).update('password', data.password);
 };
 
-function getPainting(data){
+function getPainting(){
   return pg('artwork').select();
+}
+function getPixels(data){
+  return pg('pixel_art').select()
 }
 module.exports = {
   addUser,
@@ -55,5 +61,6 @@ module.exports = {
   deletePixelArt,
   changePassword,
   userTable,
-  getPainting
+  getPainting,
+  getPixels
 }
