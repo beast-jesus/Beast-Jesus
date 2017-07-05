@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Pixelated</title>
     <link href="https://fonts.googleapis.com/css?family=Lato|Sigmar+One" rel="stylesheet">
-    <link rel="stylesheet" href="./stylesheets/pixel-style.css">
+    <link rel="stylesheet" href="/stylesheets/pixel-style.css">
   </head>
   <body>
     <nav>
@@ -16,7 +16,7 @@
     </nav>
     <div class="page-container">
       <div class = "container">
-          <div class="pixel">
+          <div id="pixel">
           </div>
           <div class="art">
             <div class="origArt">
@@ -24,9 +24,12 @@
                 <img src="{{url}}" alt="{{title}}">
               {{/data}}
             </div>
-              <form class="submit-form" action="/addPixelArt" method="post">
-                <button class="save">SAVE!</button>
-              </form>
+            <input type="submit" value="SAVE!!" id="savePixel" />
+            <form method="POST" action="pixel_page/addPixelArt" id="myForm">
+              <input type="hidden" name="div_data" id="div_data" value="" />
+              <input type="hidden" name="artwork_id" id="artwork_id" value="{{artworkId}}" />
+            </form>
+
               <div class="description">
                 Try to recreate the painting above. Pick a color and click anywhere on the white pixel board to distrubute that color.  Good luck!
               </div>
@@ -75,14 +78,8 @@
         </div>
       </div>
     </div>
-
-
-    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-    <script src ="app.js"></script>
-
-
-
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src ="../app.js"></script>
   </body>
 </html>

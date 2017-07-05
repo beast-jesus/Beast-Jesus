@@ -1,3 +1,18 @@
+$(document).ready(()=>{
+  $("#savePixel").click(()=>{
+    html2canvas($("#pixel"), {
+      onrendered: canvas => {
+        var imgData =(canvas.toDataURL())
+        $('#div_data').val(imgData)
+        console.log($('#div_data').val())
+
+        document.getElementById("myForm").submit()
+      }
+    })
+  })
+})
+
+
 // API call
 // $(document).ready(function() {
 //   getId()
@@ -56,7 +71,7 @@ colorPicker.addEventListener('click', function () {
   currentColor=color
 })
 function createCell (){
-  var gridContainer = document.querySelector(".pixel")
+  var gridContainer = document.querySelector("#pixel")
   for (var i=0; i<6825; i++){
     var newCell = document.createElement('div')
     // set <div class='cell' id=i>

@@ -4,7 +4,7 @@ exports.up = function(knex, Promise) {
       table.increments();
       table.integer('artwork_id').references('artwork.id');
       table.integer('user_id').references('myuser.id');
-      table.json('div_data');
+      table.text('div_data');
   });
 };
 

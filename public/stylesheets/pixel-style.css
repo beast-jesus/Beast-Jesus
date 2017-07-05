@@ -58,7 +58,7 @@ a {
   overflow: hidden;
 
 }
-.pixel{
+#pixel{
   display: flex;
   flex-wrap: wrap;
   width: 60%;
@@ -78,7 +78,7 @@ a {
   margin-left: 10px;
   justify-content: center;
 }
-.save{
+#savePixel{
   margin-top: 10px;
   background-color: lime;
   height: 40px;

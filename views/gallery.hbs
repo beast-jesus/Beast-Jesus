@@ -25,19 +25,18 @@
     </aside>
     <main class="pixel-display">
       <div class="pixel-display-pics">
-        <img src="./images/wave_disasterpiece.png" alt="">
-        <img src="./images/venus_disasterpiece.png" alt="">
-        {{!-- {{#each data}}
+        <!-- <img src="./images/wave_disasterpiece.png" alt="">
+        <img src="./images/venus_disasterpiece.png" alt=""> -->
+        {{#each item}}
           <img class="pixel-art" src="{{this.div_data}}">
-          <p>{{this.value}} Rate!</p>
-        {{/each}} --}}
+          <form class="delete" action="/gallery/{{this.id}}/delete/" method="get">
+            <button type="submit" class="delete-pixels">Delete</button>
+          </form>
+        {{/each}}
       </div>
     </main>
   </div>
   </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="index.js">
-
-    </script>
   </body>
 </html>
